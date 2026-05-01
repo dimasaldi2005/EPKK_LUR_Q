@@ -74,7 +74,7 @@
               <h5 class="card-title">Cetak Perbulan</h5>
 
               <form action="{{ route('galeripokja1.filter') }}" method="GET">
-                <a>Bulanan : </a><input type="month" name="search" value="Laporan Perbulan" class="input-laporan">
+                <a>Bulanan : </a><input type="month" name="search" class="input-laporan">
                 <button type="submit" class="input-laporan-btn btn-sm">Cetak</button>
               </form>
               <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
@@ -98,6 +98,8 @@
                   <option>-- Pilih --</option>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+
                 </select>
 
                 <button type="submit" class="input-laporan-btn btn-sm">Cetak</button>

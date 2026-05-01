@@ -1,75 +1,36 @@
 {{-- @extends('backend/layouts.template') --}}
-
-
-
 {{-- @section('content1') --}}
-
-
-
 <!DOCTYPE html>
 
-,<html lang="en">
+<html lang="en">
 
 
 
 <head>
 
     <meta charset="utf-8">
-
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-
-
     <title>Tanda Tangan</title>
-
     <meta content="" name="description">
-
     <meta content="" name="keywords">
-
-
-
     <!-- Favicons -->
-
     <link href="backend/assets/img/favicon.png" rel="icon">
-
     <link href="backend/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-
-
     <!-- Google Fonts -->
-
     <link href="https://fonts.gstatic.com" rel="preconnect">
-
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
-
-
-
     <!-- Vendor CSS Files -->
-
     <link href="backend/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="backend/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
     <link href="backend/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-
     <link href="backend/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-
     <link href="backend/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-
     <link href="backend/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-
     <link href="backend/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-
-
     <!-- Template Main CSS File -->
-
     <link href="backend/assets/css/style.css" rel="stylesheet">
-
-
-
     {{-- fontawesome --}}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.min.css') }}">
@@ -228,11 +189,11 @@
 
 
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success" role="alert">
 
-                            {{ $message }}
+                        {{ $message }}
 
-                        </div>
+                    </div>
                     @endif
 
 
@@ -267,46 +228,46 @@
 
                                     @php
 
-                                        $no = 1;
+                                    $no = 1;
 
                                     @endphp
 
                                     @forelse ($data as $berita)
-                                        <tr>
+                                    <tr>
 
-                                            <th scope="row">{{ $no++ }}</th>
+                                        <th scope="row">{{ $no++ }}</th>
 
-                                            <td>{{ Str::limit($berita->nama_terang, 25) }}</td>
+                                        <td>{{ Str::limit($berita->nama_terang, 25) }}</td>
 
-                                            <td>{{ Str::limit($berita->jabatan, 25) }}</td>
+                                        <td>{{ Str::limit($berita->jabatan, 25) }}</td>
 
-                                            <td>{{ Str::limit($berita->pokja, 20) }}</td>
+                                        <td>{{ Str::limit($berita->pokja, 20) }}</td>
 
-                                            <td>
+                                        <td>
 
 
 
-                                                <a href="{{ route('ttd.edit', $berita->id_ttds) }}"
-                                                    class="btn btn-sm btn-tambah">Edit</a>
+                                            <a href="{{ route('ttd.edit', $berita->id_ttds) }}"
+                                                class="btn btn-sm btn-tambah">Edit</a>
 
-                                                <form action="{{ route('ttd.destroy', $berita->id_ttds) }}"
-                                                    method="POST"class="d-inline delete-form">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        onclick="confirmDelete(this)">Hapus</button>
-                                                </form>
-                                            </td>
+                                            <form action="{{ route('ttd.destroy', $berita->id_ttds) }}"
+                                                method="POST" class="d-inline delete-form">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="btn btn-sm btn-danger"
+                                                    onclick="confirmDelete(this)">Hapus</button>
+                                            </form>
+                                        </td>
 
-                                        </tr>
+                                    </tr>
 
                                     @empty
 
-                                        <div class="alert alert-danger mt-4">
+                                    <div class="alert alert-danger mt-4">
 
-                                            Tidak ada data tanda tangan
+                                        Tidak ada data tanda tangan
 
-                                        </div>
+                                    </div>
                                     @endforelse
 
 
@@ -363,77 +324,52 @@
     <!-- Template Main JS File -->
 
     <script src="backend/assets/js/main.js"></script>
-
-
-
     <script type="text/javascript">
         Dropzone.autoDiscover = false;
-
         var myDropzone = new Dropzone('#pdf', {
-
             maxFilesize: 1,
-
             acceptedFiles: ".pdf",
-
             addRemoveLinks: true,
-
             autoProcessQueue: false,
-
             init: function() {
-
                 $("button").click(function(e) {
-
                     e.preventDefault();
-
                     myDropzone.processQueue();
-
                 });
-
-
-
                 this.on('sending', function(file, xhr, formData) {
-
                     var data = $('#pdf').serializeArray();
-
                     $.each(data, function(key, el) {
-
                         formData.append(el.name, el.value);
-
                     });
-
                 });
-
             }
-
         });
     </script>
 
-<script>
-    function confirmDelete(button) {
-      Swal.fire({
-        title: 'Yakin hapus data?',
-        text: "Data yang dihapus tidak bisa dikembalikan.",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#6c757d',
-        confirmButtonText: 'Ya, Hapus!',
-        cancelButtonText: 'Batal'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Cari form terdekat dan submit
-          button.closest('form').submit();
+    <script>
+        function confirmDelete(button) {
+            Swal.fire({
+                title: 'Yakin hapus data?',
+                text: "Data yang dihapus tidak bisa dikembalikan.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Cari form terdekat dan submit
+                    button.closest('form').submit();
+                }
+            });
         }
-      });
-    }
-  </script>
+    </script>
 
 </body>
 
 
 
-{{--
-
-</html> --}}
+{{--</html> --}}
 
 {{-- @endsection --}}

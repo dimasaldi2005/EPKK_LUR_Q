@@ -66,6 +66,7 @@
     <div class="pagetitle">
       <h1>Daftar Laporan Kader Pokja 1</h1>
     </div><!-- End Page Title -->
+    
 
     @if ($message = Session::get('success'))
     <div class="alert alert-success" role="alert">

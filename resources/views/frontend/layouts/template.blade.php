@@ -37,9 +37,9 @@
 </head>
 
 <body>
-  
+
   @include('frontend/layouts.navbar')
-  
+
   @yield('content')
 
 
@@ -50,40 +50,40 @@
       <div class="container">
         <div class="row">
 
-        <div class="col-lg-4 col-md-6 footer-contact">
+          <div class="col-lg-4 col-md-6 footer-contact">
             <h3>TP - PKK <span>Kabupaten Nganjuk</span></h3>
             <div class="mt-3">
               <h6 class="p-2 ">Kontak :</h6>
               <div class="p-2 "><a href="#" class=""><i class="bi bi-whatsapp"></i></a> 087754215178</div>
               <div class="p-2 "><a href="#" class="email"><i class="bi bi-envelope"></i></a> admin@pkk-nganjuk.my.id</div>
-            <div class="p-2 "><a href="#" class=""><i class="bi bi-geo-alt-fill"></i></a>Jl. Dermojoyo No.21, Payaman, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64418</div>
+              <div class="p-2 "><a href="#" class=""><i class="bi bi-geo-alt-fill"></i></a>Jl. Dermojoyo No.21, Payaman, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64418</div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-links" style="pointer-events: none;">
             <h6 class="p-2 ">Jumlah Pengunjung :</h6>
-             <p class=" ">Hari ini :&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ $visitor->count }}</p> 
-             <p class=" ">Minggu ini :&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;{{ $totalMinggu }}</p>
+            <p class=" ">Hari ini :&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ $visitor->count }}</p>
+            <p class=" ">Minggu ini :&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;{{ $totalMinggu }}</p>
             <p class=" ">Bulan ini :&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;{{ $totalBulan }}</p>
             <p class=" ">Tahun ini :&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ $totalTahun }}</p>
             <p class=" ">Semua Pengunjung :&emsp;&emsp;&emsp;{{ $totalVisitors }}</p>
-			</ul>
+            </ul>
           </div>
-    
+
           <div class="col-lg-4 col-md-6 footer-links" style="pointer-events: none;">
             <h6 class="p-2 ">IP Pengunjung anda :</h6>
             <?php
             if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                $visitorIP = $_SERVER['HTTP_X_FORWARDED_FOR'];
+              $visitorIP = $_SERVER['HTTP_X_FORWARDED_FOR'];
             } else {
-                $visitorIP = $_SERVER['REMOTE_ADDR'];
+              $visitorIP = $_SERVER['REMOTE_ADDR'];
             }
-            
+
             echo "Alamat IP pengunjung: " . $visitorIP;
-?>
+            ?>
           </div>
 
-         
+
 
         </div>
       </div>
@@ -91,14 +91,9 @@
 
     <div class="container py-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>A4 & B1 Politeknik Negeri Jember</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>A5 Politeknik Negeri Jember</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
-       
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -118,6 +113,190 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset ('frontend/assets/js/main.js')}}"></script>
+
+  <script>
+    const lines = [
+      "Pemberdayaan",
+      "Kesejahteraan",
+      "Keluarga"
+    ];
+
+    const sub = "Kabupaten Nganjuk";
+
+    let fullText = lines.join("\n");
+
+    let i = 0;
+    let subIndex = 0;
+
+    let phase = "typingMain";
+    // typingMain → typingSub → deletingSub → deletingMain
+
+    const speed = 80;
+    const deleteSpeed = 40;
+    const delay = 1200;
+
+    function typeEffect() {
+      const el = document.getElementById("typing-text");
+      const subEl = document.getElementById("typing-sub");
+
+      // =======================
+      // 1. NGETIK TEXT UTAMA
+      // =======================
+      if (phase === "typingMain") {
+        el.innerHTML = fullText.substring(0, i).replace(/\n/g, "<br>");
+        i++;
+
+        if (i > fullText.length) {
+          phase = "typingSub";
+          setTimeout(typeEffect, 300);
+          return;
+        }
+
+        setTimeout(typeEffect, speed);
+      }
+
+      // =======================
+      // 2. NGETIK SUB
+      // =======================
+      else if (phase === "typingSub") {
+        subEl.innerHTML = sub.substring(0, subIndex);
+        subIndex++;
+
+        if (subIndex > sub.length) {
+          phase = "deletingSub";
+          setTimeout(typeEffect, delay);
+          return;
+        }
+
+        setTimeout(typeEffect, speed);
+      }
+
+      // =======================
+      // 3. HAPUS SUB DULU
+      // =======================
+      else if (phase === "deletingSub") {
+        subEl.innerHTML = sub.substring(0, subIndex);
+        subIndex--;
+
+        if (subIndex < 0) {
+          phase = "deletingMain";
+          setTimeout(typeEffect, 300);
+          return;
+        }
+
+        setTimeout(typeEffect, deleteSpeed);
+      }
+
+      // =======================
+      // 4. HAPUS TEXT UTAMA
+      // =======================
+      else if (phase === "deletingMain") {
+        el.innerHTML = fullText.substring(0, i).replace(/\n/g, "<br>");
+        i--;
+
+        if (i < 0) {
+          // RESET
+          phase = "typingMain";
+          i = 0;
+          subIndex = 0;
+          setTimeout(typeEffect, 300);
+          return;
+        }
+
+        setTimeout(typeEffect, deleteSpeed);
+      }
+    }
+
+    typeEffect();
+  </script>
+  <!-- About -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+      const elements = document.querySelectorAll('.app-section, #about');
+
+      function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+
+        elements.forEach(el => {
+          const position = el.getBoundingClientRect().top;
+
+          if (position < windowHeight - 100) {
+            el.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+    });
+  </script>
+  <!-- Gambar -->
+  <script>
+    const appImg = document.querySelector('.app-img img');
+
+    if (appImg) {
+      setInterval(() => {
+        appImg.style.transform = "translateY(-10px)";
+        setTimeout(() => {
+          appImg.style.transform = "translateY(0)";
+        }, 800);
+      }, 2000);
+    }
+  </script>
+  <!-- Ketua -->
+  <script>
+    const ketua = document.querySelector('.img-box img');
+
+    if (ketua) {
+      ketua.addEventListener('mouseenter', () => {
+        ketua.style.transform = "scale(1.05)";
+      });
+
+      ketua.addEventListener('mouseleave', () => {
+        ketua.style.transform = "scale(1)";
+      });
+    }
+  </script>
+  <!-- Button Slied -->
+  <script>
+    function scrollGaleri(direction) {
+      const container = document.querySelector('.galeri-slider');
+      container.scrollBy({
+        left: direction * 300,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll('.galeri-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    const slider = document.querySelector('.portfolio-slider');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => isDown = false);
+    slider.addEventListener('mouseup', () => isDown = false);
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  </script>
 
 </body>
 

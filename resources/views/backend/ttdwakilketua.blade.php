@@ -202,13 +202,13 @@
 
           @if ($message = Session::get('success'))
 
-        <div class="alert alert-success" role="alert">
+          <div class="alert alert-success" role="alert">
 
-        {{ $message }}
+            {{ $message }}
 
-        </div>
+          </div>
 
-      @endif
+          @endif
 
 
 
@@ -240,49 +240,49 @@
 
                   @php
 
-          $no = 1;
+                  $no = 1;
 
-          @endphp
+                  @endphp
 
                   @forelse ($data as $berita)
 
-            <tr>
+                  <tr>
 
-            <th scope="row">{{ $no++ }}</th>
+                    <th scope="row">{{ $no++ }}</th>
 
-            <td>{{ Str::limit($berita->nama_terang, 25) }}</td>
+                    <td>{{ Str::limit($berita->nama_terang, 25) }}</td>
 
-            <td>{{ Str::limit($berita->jabatan, 25) }}</td>
+                    <td>{{ Str::limit($berita->jabatan, 25) }}</td>
 
-            <td>
+                    <td>
 
-              <form action="{{ route('ttdwakilketua.destroy', $berita->id_ttdss)}}" method="POST"
-              class="d-inline">
+                      <form action="{{ route('ttdwakilketua.destroy', $berita->id_ttdss)}}" method="POST"
+                        class="d-inline">
 
-              @csrf
+                        @csrf
 
-              @method('DELETE')
+                        @method('DELETE')
 
-              <button type="submit" class="btn btn-sm btn-danger"
-                onclick="return confirm('Apakah anda yakin ingin menghapus tanda tangan?')">Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger"
+                          onclick="return confirm('Apakah anda yakin ingin menghapus tanda tangan?')">Delete</button>
 
-              </form>
+                      </form>
 
 
 
-            </td>
+                    </td>
 
-            </tr>
+                  </tr>
 
-          @empty
+                  @empty
 
-            <div class="alert alert-danger mt-4">
+                  <div class="alert alert-danger mt-4">
 
-            Tidak ada data tanda tangan
+                    Tidak ada data tanda tangan
 
-            </div>
+                  </div>
 
-          @endforelse
+                  @endforelse
 
 
 
@@ -342,7 +342,6 @@
 
 
   <script type="text/javascript">
-
     Dropzone.autoDiscover = false;
 
     var myDropzone = new Dropzone('#pdf', {
@@ -355,9 +354,9 @@
 
       autoProcessQueue: false,
 
-      init: function () {
+      init: function() {
 
-        $("button").click(function (e) {
+        $("button").click(function(e) {
 
           e.preventDefault();
 
@@ -367,11 +366,11 @@
 
 
 
-        this.on('sending', function (file, xhr, formData) {
+        this.on('sending', function(file, xhr, formData) {
 
           var data = $('#pdf').serializeArray();
 
-          $.each(data, function (key, el) {
+          $.each(data, function(key, el) {
 
             formData.append(el.name, el.value);
 
@@ -382,7 +381,6 @@
       }
 
     });
-
   </script>
 
 

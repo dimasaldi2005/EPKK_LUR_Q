@@ -68,7 +68,8 @@ class LoginRequest extends FormRequest
         // Jika tidak ditemukan sama sekali
         RateLimiter::hit($this->throttleKey());
         throw ValidationException::withMessages([
-            'email' => trans('auth.failed'),
+            'email' => trans('Email / WhatsApp salah atau belum terdaftar'),
+            'password' => trans('Password yang anda masukan salah')
         ]);
     }
 

@@ -21,7 +21,7 @@ class Galeri1Controller extends Controller
                    ->whereIn('status', ['Proses', 'Upload'])
                    ->count();
 
-    $ketiga = Galeri::where('bidang', 'Kader Pokja 1')
+    $ketiga = Galeri::where('bidang', 'Kader Pokja I')
                     ->whereIn('status', ['Proses', 'Upload'])
                     ->count();
 

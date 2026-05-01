@@ -35,33 +35,33 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 // ->middleware(['auth:web,pengguna'])
 //     ->name('logout');
 
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware(['auth:web,pengguna'])
     ->name('logout');
 
 
 require __DIR__ . '/auth.php';
 
-    Route::resource('home', App\Http\Controllers\frontend\HomeController::class);
-    Route::resource('laporan', App\Http\Controllers\frontend\LaporanController::class);
-    Route::resource('berita', App\Http\Controllers\frontend\BeritaController::class);
-    Route::resource('pengumuman', App\Http\Controllers\frontend\PengumumanController::class);
-    Route::resource('pokja', App\Http\Controllers\frontend\PokjaController::class);
-    Route::resource('pokjathu', App\Http\Controllers\frontend\PokjathuController::class);
-    Route::resource('pokjatre', App\Http\Controllers\frontend\PokjatreController::class);
-    Route::resource('pokjafou', App\Http\Controllers\frontend\PokjafouController::class);
-    Route::resource('visimisi', App\Http\Controllers\frontend\VisiMisiController::class);
-    Route::resource('struktur', App\Http\Controllers\frontend\StrukturController::class);
-    Route::resource('mars', App\Http\Controllers\frontend\MarsController::class);
-    Route::resource('lambangpkk', App\Http\Controllers\frontend\LambangController::class);
-    Route::resource('sejarah', App\Http\Controllers\frontend\SejarahController::class);
-    Route::resource('showkes', App\Http\Controllers\frontend\TampilkesController::class);
-    Route::resource('showling', App\Http\Controllers\frontend\TampilkunganController::class);
-    Route::resource('showhat', App\Http\Controllers\frontend\TampilsehatController::class);
-    Route::resource('galery', App\Http\Controllers\frontend\GaleryController::class);
-    Route::get('frontend/show/{id}', [BeritaController::class, 'show'])->name('frontend.show');
+Route::resource('home', App\Http\Controllers\frontend\HomeController::class);
+Route::resource('laporan', App\Http\Controllers\frontend\LaporanController::class);
+Route::resource('berita', App\Http\Controllers\frontend\BeritaController::class);
+Route::resource('pengumuman', App\Http\Controllers\frontend\PengumumanController::class);
+Route::resource('pokja', App\Http\Controllers\frontend\PokjaController::class);
+Route::resource('pokjathu', App\Http\Controllers\frontend\PokjathuController::class);
+Route::resource('pokjatre', App\Http\Controllers\frontend\PokjatreController::class);
+Route::resource('pokjafou', App\Http\Controllers\frontend\PokjafouController::class);
+Route::resource('visimisi', App\Http\Controllers\frontend\VisiMisiController::class);
+Route::resource('struktur', App\Http\Controllers\frontend\StrukturController::class);
+Route::resource('mars', App\Http\Controllers\frontend\MarsController::class);
+Route::resource('lambangpkk', App\Http\Controllers\frontend\LambangController::class);
+Route::resource('sejarah', App\Http\Controllers\frontend\SejarahController::class);
+Route::resource('showkes', App\Http\Controllers\frontend\TampilkesController::class);
+Route::resource('showling', App\Http\Controllers\frontend\TampilkunganController::class);
+Route::resource('showhat', App\Http\Controllers\frontend\TampilsehatController::class);
+Route::resource('galery', App\Http\Controllers\frontend\GaleryController::class);
+Route::get('frontend/show/{id}', [BeritaController::class, 'show'])->name('frontend.show');
 
-    
+
 Route::middleware(['auth:web,pengguna', 'prevent-back-history'])->group(function () {
     Route::resource('profile', App\Http\Controllers\backend\ProfileController::class);
     Route::resource('change_password', App\Http\Controllers\backend\ChangePasswordController::class);

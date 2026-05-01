@@ -24,7 +24,7 @@ class AccLaporanPokja1Controller extends Controller
                     })
                     ->count();
 
-                $lap2 = LaporanPokja1::whereIn('status', ['Disetujui1'])
+                $lap2 = LaporanPokja1::whereIn('status', ['disetujui1'])
                     ->whereHas('user', function ($query) use ($user) {
                         $query->where('id_subdistrict', $user->id_subdistrict)
                             ->where('id_role', 1); // Desa
@@ -34,8 +34,8 @@ class AccLaporanPokja1Controller extends Controller
         }
         // Jika yang login adalah admin web
         else {
-            $lap1 = LaporanPokja1::where('status', 'Disetujui1')->count();
-            $lap2 = LaporanPokja1::where('status', 'Disetujui2')->count();
+            $lap1 = LaporanPokja1::whereIn('status', ['Proses'])->count();
+            $lap2 = LaporanPokja1::whereIn('status', ['Disetujui1'])->count();
         }
 
         return view('backend.acclaporanpokja1', compact('lap1', 'lap2'));

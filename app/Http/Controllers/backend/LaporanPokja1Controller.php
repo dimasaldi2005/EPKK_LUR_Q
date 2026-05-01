@@ -30,7 +30,7 @@ class LaporanPokja1Controller extends Controller
                     )
                     ->where('users_mobile.id_subdistrict', $user->id_subdistrict)
                     ->where('users_mobile.id_role', 1) // Hanya desa
-                    ->whereIn('laporan_kader_pokja1.status', ['proses'])
+                    ->whereIn('laporan_kader_pokja1.status', ['Proses'])
                     ->orderBy('laporan_kader_pokja1.id_kader_pokja1', 'desc')
                     ->get();
             }
@@ -54,7 +54,7 @@ class LaporanPokja1Controller extends Controller
 
     public function edit(string $id_kader_pokja1)
     {
-        $data = LaporanPokja1::find($id_kader_pokja1);
+        $data = LaporanPokja1::where('id_kader_pokja1', $id_kader_pokja1)->first();
         return view('backend.tampil_laporanpokja1', compact('data'));
     }
 

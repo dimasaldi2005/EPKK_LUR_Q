@@ -1,6 +1,8 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
 
+        <li class="nav-heading">Menu</li>
+
         <!-- Dashboard - Akses semua -->
         <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('dashboard') ? '' : 'collapsed' }}"

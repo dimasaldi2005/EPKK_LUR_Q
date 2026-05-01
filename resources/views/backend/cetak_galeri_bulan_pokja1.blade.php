@@ -144,7 +144,7 @@
                   @foreach($penghayatan as $tampil)
                 <tr>
                     <th style='font-size: 15px; border: 1px #000; padding: 10px 15px 10px 15px;' align="justify">{{ $no++ }}.</th>
-                    <td style='font-size: 15px; border: 1px #000; padding: 10px 45px 10px 45px;' align="justify">{{ \Carbon\Carbon::parse($tampil->tanggal)->isoFormat('D MMMM Y') }}</td>
+                    <td style='font-size: 15px; border: 1px #000; padding: 10px 45px 10px 45px;' align="justify">{{ \Carbon\Carbon::parse($tampil->created_at)->isoFormat('D MMMM Y') }}</td>
                     <td style='font-size: 15px; border: 1px #000; padding: 10px 45px 10px 45px;' align="justify">{{ $tampil->deskripsi}}</td>
                 </tr>
                 @endforeach
@@ -178,7 +178,7 @@
                   @foreach($kader as $tampil1)
                 <tr>
                     <th style='font-size: 15px; border: 1px #000; padding: 10px 15px 10px 15px;' align="justify">{{ $no++ }}.</th>
-                    <td style='font-size: 15px; border: 1px #000; padding: 10px 45px 10px 45px;' align="justify">{{ \Carbon\Carbon::parse($tampil1->tanggal)->isoFormat('D MMMM Y') }}</td>
+                    <td style='font-size: 15px; border: 1px #000; padding: 10px 45px 10px 45px;' align="justify">{{ \Carbon\Carbon::parse($tampil1->created_at)->isoFormat('D MMMM Y') }}</td>
                     <td style='font-size: 15px; border: 1px #000; padding: 10px 45px 10px 45px;' align="justify">{{ $tampil1->deskripsi}}</td>
                 </tr>
                 @endforeach

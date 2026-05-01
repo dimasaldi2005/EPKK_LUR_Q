@@ -4,7 +4,7 @@
 
         <!-- Breadcrumb -->
         <div class="container">
-            <nav aria-label="breadcrumb" style="background-color: #fff" class="mt-3">
+            <nav aria-label="breadcrumb" style="background-color: #f4eeee" class="mt-3">
                 <ol class="breadcrumb p-3">
                     <li class="breadcrumb-item"><a href="landing-page" class="text-decoration-none">Beranda</a></li>
                     <li class="breadcrumb-item active"><a aria-current="page" value="">Berita</a></li>

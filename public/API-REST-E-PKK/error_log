@@ -88,13 +88,3 @@ Stack trace:
 [22-Jul-2023 12:56:26 UTC] PHP Warning:  Undefined array key "bidang" in /home/pkknganj/public_html/API-REST-E-PKK/multiImage.php on line 6
 [22-Jul-2023 12:57:50 UTC] PHP Warning:  Undefined array key "pokja" in /home/pkknganj/public_html/API-REST-E-PKK/multiImage.php on line 5
 [22-Jul-2023 12:57:50 UTC] PHP Warning:  Undefined array key "bidang" in /home/pkknganj/public_html/API-REST-E-PKK/multiImage.php on line 6
-[21-Jul-2024 15:15:07 Asia/Jakarta] PHP Warning:  move_uploaded_file(../public/frontend2/gallery2/images.jpeg): Failed to open stream: No such file or directory in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/multiImage.php on line 45
-[21-Jul-2024 15:15:07 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php7I9KxV' to '../public/frontend2/gallery2/images.jpeg' in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/multiImage.php on line 45
-[21-Jul-2024 15:15:07 Asia/Jakarta] PHP Warning:  move_uploaded_file(../public/frontend2/gallery2/images (1).jpeg): Failed to open stream: No such file or directory in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/multiImage.php on line 45
-[21-Jul-2024 15:15:07 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpJ36G90' to '../public/frontend2/gallery2/images (1).jpeg' in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/multiImage.php on line 45
-[21-Jul-2024 15:15:07 Asia/Jakarta] PHP Warning:  move_uploaded_file(../public/frontend2/gallery2/IMG_20240605_083509.jpg): Failed to open stream: No such file or directory in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/multiImage.php on line 45
-[21-Jul-2024 15:15:07 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpODcGS0' to '../public/frontend2/gallery2/IMG_20240605_083509.jpg' in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/multiImage.php on line 45
-[31-Jul-2024 15:23:31 Asia/Jakarta] PHP Warning:  Undefined array key "status" in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/updateOtpRegis.php on line 9
-[06-Aug-2024 09:32:55 Asia/Jakarta] PHP Warning:  Undefined array key "status" in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/updateOtpRegis.php on line 9
-[24-Sep-2024 09:27:02 Asia/Jakarta] PHP Warning:  Undefined array key "status" in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/updateOtpRegis.php on line 9
-[13-Nov-2024 10:06:44 Asia/Jakarta] PHP Warning:  Undefined array key "status" in /home/tifz1761/public_html/epkk/public/API-REST-E-PKK/updateOtpRegis.php on line 9

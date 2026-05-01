@@ -55,7 +55,8 @@
                   </div>
                 </a>
                 </div>
-              </div><!-- End Sales Card -->
+              </div>
+              <!-- End Sales Card -->
 
                              <!-- Sales Card -->
                <div class="col-xxl-6 col-md-6">
